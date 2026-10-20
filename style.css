@@ -141,6 +141,46 @@ h1 span {
   border: 0;
 }
 
+.mvp-widget {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border: 1px solid #3d4930;
+  border-left: 3px solid #efc86b;
+  border-radius: 8px;
+  background: #17251d;
+}
+
+.mvp-label {
+  flex: none;
+  color: #efc86b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.mvp-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+  width: 100%;
+}
+
+.mvp-info strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+#mvp-score {
+  color: #c7d7ca;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
 .stats {
   display: flex;
   justify-content: space-between;

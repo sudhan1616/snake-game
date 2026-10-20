@@ -14,6 +14,8 @@ const profileSelect = document.getElementById("profile-select");
 const profileForm = document.getElementById("profile-form");
 const profileNameInput = document.getElementById("profile-name");
 const profileMessage = document.getElementById("profile-message");
+const mvpNameEl = document.getElementById("mvp-name");
+const mvpScoreEl = document.getElementById("mvp-score");
 
 const cells = 20;
 const cellSize = canvas.width / cells;
@@ -88,6 +90,21 @@ function renderProfiles() {
   profileSelect.value = activeProfileId;
   best = profiles.find(profile => profile.id === activeProfileId).best;
   bestEl.textContent = best;
+  renderMvp();
+}
+
+function renderMvp() {
+  const leader = profiles.reduce((highest, profile) =>
+    !highest || profile.best > highest.best ? profile : highest, null);
+
+  if (!leader || leader.best === 0) {
+    mvpNameEl.textContent = "No MVP yet";
+    mvpScoreEl.textContent = "Play to set the lead";
+    return;
+  }
+
+  mvpNameEl.textContent = leader.name;
+  mvpScoreEl.textContent = `${leader.best} point${leader.best === 1 ? "" : "s"}`;
 }
 
 function setProfileControlsDisabled(disabled) {
@@ -324,6 +341,7 @@ function tick() {
       best = score;
       activeProfile.best = score;
       bestEl.textContent = best;
+      renderMvp();
       saveProfiles();
     }
 
