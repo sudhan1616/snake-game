@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="game">
+    <header class="header">
+      <div>
+        <p class="eyebrow">ARCADE CLASSIC</p>
+        <h1>Snake<span>.</span></h1>
+        <p class="subtitle">Eat. Grow. Don't crash.</p>
+      </div>
+      <div class="score-box">
+        <span>SCORE</span>
+        <strong id="score">0</strong>
+      </div>
+    </header>
+
+    <section class="profile-controls" aria-label="Player profile">
+      <label for="profile-select">PLAYER</label>
+      <select id="profile-select" aria-label="Active player profile"></select>
+      <form id="profile-form">
+        <label class="visually-hidden" for="profile-name">New profile name</label>
+        <input id="profile-name" name="profile-name" type="text"
+          maxlength="20" placeholder="New profile" required>
+        <button type="submit">Create</button>
+      </form>
+      <span id="profile-message" role="status" aria-live="polite"></span>
+    </section>
+
+    <div class="stats">
+      <span>BEST <strong id="best">0</strong></span>
+      <span id="status">Ready to play</span>
+    </div>
+
+    <div class="board-wrap">
+      <canvas id="board" width="400" height="400"
+        aria-label="Snake game board"></canvas>
+      <div id="overlay" class="overlay">
+        <div class="overlay-card">
+          <div class="play-icon">▶</div>
+          <h2 id="overlay-title">Ready to play?</h2>
+          <p id="overlay-message">Grab the food and beat your high score.</p>
+          <button id="start-btn">Start Game</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="pause-btn" class="secondary" disabled>Pause</button>
+      <button id="restart-btn" class="secondary">Restart</button>
+    </div>
+
+    <div class="mobile-controls" aria-label="Direction controls">
+      <button data-dir="up" aria-label="Up">▲</button>
+      <div class="horizontal">
+        <button data-dir="left" aria-label="Left">◀</button>
+        <button data-dir="down" aria-label="Down">▼</button>
+        <button data-dir="right" aria-label="Right">▶</button>
+      </div>
+    </div>
+
+    <p class="help">Use <strong>↑ ↓ ← →</strong> or <strong>W A S D</strong> to move.
+      Press <strong>Space</strong> to pause.</p>
+  </main>
+</body>
+</html>
