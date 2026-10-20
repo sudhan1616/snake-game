@@ -356,6 +356,11 @@ function changeDirection(name) {
 }
 
 document.addEventListener("keydown", event => {
+  if (event.target instanceof Element &&
+      event.target.closest("input, textarea, select, [contenteditable='true']")) {
+    return;
+  }
+
   const keys = {
     ArrowUp: "up",
     w: "up",
